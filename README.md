@@ -7,6 +7,9 @@ I will be converting watchlist card from my toWatch project
 - Think about state and props while making sub components
 - Fit it all together and test it using static json data (same structure as angular version)
 
+### Component Breakdown
+[screenshot](https://github.com/ChetanPate1/react-project/blob/master/component-breakdown.png)
+
 ### License
 [MIT License](https://github.com/ChetanPate1/react-project/blob/master/LICENCE)
 © Chetan Patel
