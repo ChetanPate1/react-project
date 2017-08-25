@@ -9,7 +9,7 @@ var watchlist = {
    },
    "showId":"-KqJ3X1UZtOJG6H7X3Fv",
    "series": "Game of Thrones",
-   "series_subheading": "The Dragon and the Wolf",
+   "subheading": "The Dragon and the Wolf",
    "imgsrc": "https://static.episodate.com/images/tv-show/full/23455.jpg",
    "unwatched":{
       "season_7":[
@@ -61,16 +61,11 @@ var watchlist = {
    "upToDate":false
 };
 
-
 class App extends Component {
    render() {
       return (
          <div className="container">
-            <WatchlistCard
-               heading={watchlist.series}
-               details={watchlist.series_subheading}
-               on={'Season ' + watchlist.on.season + ' Episode ' + watchlist.on.episode}
-               imgsrc={watchlist.imgsrc} />
+            <WatchlistCard watchlist={watchlist} />
          </div>
       );
    }

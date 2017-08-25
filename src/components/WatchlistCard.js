@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import FrostGlass from './FrostGlass';
 
 class WatchlistCard extends Component {
    render() {
-      const style = { backgroundImage: 'url(' + this.props.imgsrc + ')' };
+      const watchlist = this.props.watchlist;
+      const style = { backgroundImage: 'url(' + watchlist.imgsrc + ')' };
       return (
          <div className="watchlist-card" style={ style }>
-            <h2>{ this.props.heading }</h2>
-            <h4>{ this.props.details }</h4>
-            <h5>On { this.props.on }</h5>
+            <h2>{ watchlist.series }</h2>
+            <h4>{ watchlist.subheading }</h4>
+            <h5>On Season { watchlist.on.season } Episode { watchlist.on.episode }</h5>
             <h6>Next <small>Aired Episode</small></h6>
+
+            <FrostGlass imgsrc={ watchlist.imgsrc } />
          </div>
       );
    }
