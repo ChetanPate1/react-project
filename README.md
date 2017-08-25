@@ -8,5 +8,5 @@ I will be converting watchlist card from my toWatch project
 - Fit it all together and test it using static json data (same structure as angular version)
 
 ### License
-[MIT License](https://github.com/ChetanPate1/react-project/blob/master/LICENCE.md)
+[MIT License](https://github.com/ChetanPate1/react-project/blob/master/LICENCE)
 © Chetan Patel
