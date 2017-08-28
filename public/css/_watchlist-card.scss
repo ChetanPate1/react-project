@@ -66,3 +66,12 @@
     }
   }
 }
+
+.watchlist-card{
+  .more-button{
+    z-index: 300;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}
