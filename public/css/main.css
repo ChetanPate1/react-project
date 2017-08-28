@@ -23,6 +23,7 @@ h1 {
   src: url("fonts/dripicons-v2.eot?#iefix") format("embedded-opentype"), url("fonts/dripicons-v2.woff") format("woff"), url("fonts/dripicons-v2.ttf") format("truetype"), url("fonts/dripicons-v2.svg#dripicons-v2") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [data-icon]:before {
   font-family: "dripicons-v2" !important;
   content: attr(data-icon);
@@ -975,62 +976,43 @@ h1 {
 @media (max-width: 991px) {
   .margin-bottom-sm-0 {
     margin-bottom: 0 !important; }
-
   .margin-bottom-sm-10 {
     margin-bottom: 10px !important; }
-
   .margin-bottom-sm-20 {
     margin-bottom: 20px !important; }
-
   .margin-bottom-sm-30 {
     margin-bottom: 30px !important; }
-
   .margin-bottom-sm-40 {
     margin-bottom: 40px !important; }
-
   .margin-top-sm-0 {
     margin-top: 0 !important; }
-
   .margin-top-sm-10 {
     margin-top: 10px !important; }
-
   .margin-top-sm-20 {
     margin-top: 20px !important; }
-
   .margin-top-sm-30 {
     margin-top: 30px !important; }
-
   .margin-top-sm-40 {
     margin-top: 40px !important; } }
+
 @media (max-width: 767px) {
   .margin-bottom-xs-0 {
     margin-bottom: 0 !important; }
-
   .margin-bottom-xs-10 {
     margin-bottom: 10px !important; }
-
   .margin-bottom-xs-20 {
     margin-bottom: 20px !important; }
-
   .margin-bottom-xs-30 {
     margin-bottom: 30px !important; }
-
   .margin-bottom-xs-40 {
     margin-bottom: 40px !important; }
-
   .margin-top-xs-0 {
     margin-top: 0 !important; }
-
   .margin-top-xs-10 {
     margin-top: 10px !important; }
-
   .margin-top-xs-20 {
     margin-top: 20px !important; }
-
   .margin-top-xs-30 {
     margin-top: 30px !important; }
-
   .margin-top-xs-40 {
     margin-top: 40px !important; } }
-
-/*# sourceMappingURL=main.css.map */
