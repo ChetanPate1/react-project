@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { objSize } from '../helperFunctions';
 
 class MoreButton extends Component {
    constructor(){
@@ -9,13 +10,14 @@ class MoreButton extends Component {
          now: new Date().getTime(),
          behindCount: 0
       };
+
       this.toggle = this.toggle.bind(this);
       this.behindCount = this.behindCount.bind(this);
    }
 
    componentWillMount(){
-      console.log(this.props.seasons, this.props.currentseason);
-      this.behindCount(this.props.seasons, this.props.currentseason);
+      let currentSeason = parseInt(this.props.currentseason, 0);
+      this.behindCount(this.props.seasons, currentSeason);
    }
 
    toggle(){
@@ -25,14 +27,12 @@ class MoreButton extends Component {
    }
 
    behindCount(seasons, currentSeason){
-      var currentSeason = parseInt(currentSeason);
-      let seasonsLimit = seasons.length + currentSeason;
+      let seasonsLimit = objSize(seasons) + currentSeason;
       let count = 0, j = 1, totalEpisodes = 0, season;
-      console.log(seasons.length);
+
       for (currentSeason; currentSeason < seasonsLimit; currentSeason++) {
          season = seasons['season_' + currentSeason];
-         totalEpisodes = season.length;
-
+         totalEpisodes = objSize(season);
          for (j; j < totalEpisodes; j++) {
             if(!season[j].watched && season[j].airDate - this.state.now < 0){
                count++;
@@ -48,7 +48,7 @@ class MoreButton extends Component {
    render() {
       let behindCount = this.state.behindCount;
       let buttonStateClass = this.state.toggleOn ? ' open' : '';
-      let upToDateStateClass = behindCount == 0 ? ' up-to-date' : '';
+      let upToDateStateClass = behindCount === 0 ? ' up-to-date' : '';
 
       return (
          <button className={ 'more-button' + buttonStateClass + upToDateStateClass }
