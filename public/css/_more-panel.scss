@@ -1,0 +1,18 @@
+.more-panel{
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  will-change: transform;
+  @include transition(all 500ms ease);
+  @include transforms(translate(-100%, 0));
+
+  &.open{
+    opacity: 1;
+    @include transforms(translate(0, 0));
+  }
+}
