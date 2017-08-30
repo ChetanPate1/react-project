@@ -17,8 +17,8 @@ class MorePanel extends Component {
    }
 
    render() {
-      let seasons = this.props.seasons;
-      let currentSeason = this.props.currentSeason;
+      const seasons = this.props.seasons;
+      const currentSeason = this.props.currentSeason;
 
       return (
          <div>
