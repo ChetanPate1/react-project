@@ -74,4 +74,12 @@
     top: 15px;
     right: 15px;
   }
+
+  .slide-out-panel{
+    padding-top: 50px;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+  }
 }
