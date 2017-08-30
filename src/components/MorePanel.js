@@ -22,7 +22,7 @@ class MorePanel extends Component {
 
       return (
          <div>
-            <MoreButton on={ this.state.open } onClick={ this.toggle } seasons={ seasons } currentSeason={ currentSeason } />
+            <MoreButton on={ this.state.open } handleClick={ this.toggle } seasons={ seasons } currentSeason={ currentSeason } />
             <SlideOutPanel open={ this.state.open } seasons={ seasons } currentSeason={ currentSeason } />
          </div>
       );

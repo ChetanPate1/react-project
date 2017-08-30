@@ -4,25 +4,44 @@ import TabButton from './TabButton';
 class Tabs extends Component {
    constructor(props){
       super(props);
-      this.state = { tabActive: 1 };
+      this.state = { seasons: [], tabActive: this.props.currentSeason };
+
+      this.createTabs = this.createTabs.bind(this);
+      this.isTabSelected = this.isTabSelected.bind(this);
    }
 
-   tabSelect(number) {
+   createTabs(){
+      let tabNumbers = [];
+      const seasons = this.props.seasons;
+
+      Object.keys(seasons).map((prop, index) =>
+         tabNumbers.push(seasons[prop][0])
+      );
+
+      const tabs = tabNumbers.map((tabNumber, i) =>
+         <TabButton key={ i }
+            name={'S ' + tabNumber }
+            active={ this.isTabSelected(tabNumber) }
+            handleClick={ this.tabSelect.bind(this, tabNumber) }
+         />
+      );
+      return tabs;
+   }
+
+   tabSelect(tabNumber) {
       this.setState({
-         tabActive: number
+         tabActive: tabNumber
       });
    }
 
    isTabSelected(number) {
-      return this.state.tabActive === number;
+      return this.state.tabActive == number;
    }
 
    render() {
-      let buttonStateClass = 'active';
-      let tabs = <TabButton name={ 'S01' } active={ false } />;
       return (
          <div className="tabs" >
-            { tabs }
+            { this.createTabs() }
          </div>
       );
    }

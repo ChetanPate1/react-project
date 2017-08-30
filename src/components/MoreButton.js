@@ -10,7 +10,7 @@ class MoreButton extends Component {
          behindCount: 0
       };
 
-      this.toggle = this.props.onClick;
+      this.toggle = this.props.handleClick;
       this.behindCount = this.behindCount.bind(this);
    }
 
