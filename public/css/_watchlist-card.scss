@@ -82,4 +82,14 @@
     top: 0;
     left: 0;
   }
+
+  .tab-panel{
+    height: 360px;
+    
+    .button.red{
+      width: 90%;
+      display: block;
+      margin: 25px auto 10px auto;
+    }
+  }
 }
