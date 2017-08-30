@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 class CountdownTimer extends Component {
-   constructor(){
-      super();
+   constructor(props){
+      super(props);
+
       this.state = {
          inSeconds: {
             now: function () {

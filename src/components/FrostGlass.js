@@ -3,7 +3,7 @@ import CountdownTimer from './CountdownTimer';
 
 class FrostGlass extends Component {
    render() {
-      const style = { backgroundImage: 'url(' + this.props.imgsrc + ')' };
+      const style = { backgroundImage: 'url(' + this.props.imgSrc + ')' };
       const future = 1505336400000;
       return (
          <div className="frost-glass">

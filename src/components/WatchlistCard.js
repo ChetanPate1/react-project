@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FrostGlass from './FrostGlass';
-import MoreButton from './MoreButton';
+import MorePanel from './MorePanel';
 
 class WatchlistCard extends Component {
    render() {
@@ -14,8 +14,8 @@ class WatchlistCard extends Component {
             <h5>On Season { watchlist.on.season } Episode { watchlist.on.episode }</h5>
             <h6>Next <small>Aired Episode</small></h6>
 
-            <MoreButton seasons={ watchlist.unwatched } currentseason={ watchlist.on.season } />
-            <FrostGlass imgsrc={ watchlist.imgsrc } />
+            <MorePanel seasons={ watchlist.unwatched } currentSeason={ watchlist.on.season } />
+            <FrostGlass imgSrc={ watchlist.imgsrc } />
          </div>
       );
    }
