@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Tabs from './Tabs';
 
 class SlideOutPanel extends Component {
    render() {
@@ -6,7 +7,7 @@ class SlideOutPanel extends Component {
 
       return (
          <div className={ 'slide-out-panel' + conditionalClass } >
-
+            <Tabs />
          </div>
       );
    }
