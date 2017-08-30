@@ -886,7 +886,7 @@ h1 {
     -ms-transform: translate(0, 0) scale(1);
     transform: translate(0, 0) scale(1); }
 
-.more-panel {
+.slide-out-panel {
   position: absolute;
   z-index: 200;
   top: 0;
@@ -902,7 +902,7 @@ h1 {
   -webkit-transform: translate(-100%, 0);
   -ms-transform: translate(-100%, 0);
   transform: translate(-100%, 0); }
-  .more-panel.open {
+  .slide-out-panel.open {
     opacity: 1;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);

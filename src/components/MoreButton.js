@@ -10,6 +10,7 @@ class MoreButton extends Component {
          behindCount: 0
       };
 
+      this.toggle = this.props.onClick;
       this.behindCount = this.behindCount.bind(this);
    }
 
@@ -39,7 +40,7 @@ class MoreButton extends Component {
 
    render() {
       let behindCount = this.state.behindCount;
-      let buttonStateClass = this.props.toggleOn ? ' open' : '';
+      let buttonStateClass = this.props.on ? ' open' : '';
       let upToDateStateClass = behindCount === 0 ? ' up-to-date' : '';
 
       return (

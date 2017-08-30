@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MoreButton from './MoreButton';
+import SlideOutPanel from './SlideOutPanel';
 
 class MorePanel extends Component {
    constructor(props){
@@ -11,19 +12,21 @@ class MorePanel extends Component {
 
    toggle(){
       this.setState(prevState => ({
-         toggleOn: !prevState.toggleOn
+         open: !prevState.open
       }));
    }
 
    render() {
-      let conditionalClass = this.state.open ? ' open' : '';
+      let seasons = this.props.seasons;
+      let currentSeason = this.props.currentSeason;
 
       return (
          <div>
-            <MoreButton onClick={ this.toggle } seasons={ this.props.seasons } currentSeason={ this.props.currentSeason } />
-            <div className={ 'more-panel' + conditionalClass } ></div>
+            <MoreButton on={ this.state.open } onClick={ this.toggle } seasons={ seasons } currentSeason={ currentSeason } />
+            <SlideOutPanel open={ this.state.open } seasons={ seasons } currentSeason={ currentSeason } />
          </div>
       );
    }
 }
+
 export default MorePanel;
