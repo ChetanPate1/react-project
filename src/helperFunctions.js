@@ -9,3 +9,7 @@ export function objSize(obj) {
    }
    return count;
 }
+
+export function timeNow(){
+   return new Date().getTime();
+}

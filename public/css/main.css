@@ -755,9 +755,9 @@ h1 {
   top: 0;
   left: 0; }
 
-.watchlist-card .tab-panel {
+.watchlist-card .tab-panels {
   height: 360px; }
-  .watchlist-card .tab-panel .button.red {
+  .watchlist-card .tab-panels .button.red {
     width: 90%;
     display: block;
     margin: 25px auto 10px auto; }
@@ -957,8 +957,9 @@ h1 {
   position: relative;
   width: 100%;
   display: block;
-  overflow-y: auto; }
-  .tab-panels .panel {
+  overflow-y: auto;
+  height: 360px; }
+  .tab-panels .tab-panel {
     z-index: 100;
     padding: 0;
     position: absolute;
@@ -974,7 +975,7 @@ h1 {
     -webkit-transition: all 400ms ease;
     -ms-transition: all 400ms ease;
     transition: all 400ms ease; }
-    .tab-panels .panel.active {
+    .tab-panels .tab-panel.active {
       z-index: 200;
       opacity: 1;
       -webkit-transform: translate(0, 0);
@@ -982,9 +983,58 @@ h1 {
       transform: translate(0, 0); }
   .tab-panels::-webkit-scrollbar {
     width: 0px;
-    /* remove scrollbar space */
-    background: transparent;
-    /* optional: just make scrollbar invisible */ }
+    background: transparent; }
+
+.panel-row {
+  margin: 10px auto;
+  height: 50px;
+  width: 90%;
+  background-color: #ffffff;
+  display: block;
+  padding: 15px 10px;
+  border-radius: 4px;
+  -webkit-transition: opacity 500ms ease;
+  -ms-transition: opacity 500ms ease;
+  transition: opacity 500ms ease; }
+  .panel-row .col-35, .panel-row .col-45, .panel-row .col-20 {
+    float: left;
+    line-height: 1.5; }
+  .panel-row .col-35 {
+    width: 35%;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    -webkit-transition: opacity 400ms ease;
+    -ms-transition: opacity 400ms ease;
+    transition: opacity 400ms ease; }
+    .panel-row .col-35 .aired-by {
+      float: left;
+      font-size: 11px;
+      line-height: 1;
+      border: 2px solid #6840e5;
+      color: #6840e5;
+      padding: 3px 8px;
+      border-radius: 11px; }
+  .panel-row .col-45 {
+    width: 45%;
+    font-weight: 700; }
+  .panel-row .col-20 {
+    width: 20%;
+    text-align: right;
+    font-size: 22px; }
+    .panel-row .col-20 .dripicons-preview {
+      cursor: pointer;
+      opacity: 0.5;
+      -webkit-transition: opacity 200ms ease;
+      -ms-transition: opacity 200ms ease;
+      transition: opacity 200ms ease; }
+      .panel-row .col-20 .dripicons-preview:hover {
+        opacity: 1; }
+      .panel-row .col-20 .dripicons-preview.active {
+        opacity: 1;
+        color: #6840e5; }
+  .panel-row.disabled {
+    opacity: 0.8; }
 
 .margin-none {
   margin: 0 !important; }
