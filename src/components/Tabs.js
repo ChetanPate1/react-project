@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TabButton from './TabButton';
+import TabPanels from './TabPanels';
 
 class Tabs extends Component {
    constructor(props){
@@ -39,9 +40,15 @@ class Tabs extends Component {
    }
 
    render() {
+      let tabNumber = this.state.tabActive;
+
       return (
-         <div className="tabs" >
-            { this.createTabs() }
+         <div>
+            <div className="tabs" >{ this.createTabs() }</div>
+            <TabPanels
+               tabActive={ this.state.tabActive }
+               panelContent={ this.props.seasons }
+            />
          </div>
       );
    }

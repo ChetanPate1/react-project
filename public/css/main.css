@@ -755,6 +755,13 @@ h1 {
   top: 0;
   left: 0; }
 
+.watchlist-card .tab-panel {
+  height: 360px; }
+  .watchlist-card .tab-panel .button.red {
+    width: 90%;
+    display: block;
+    margin: 25px auto 10px auto; }
+
 .frost-glass {
   z-index: 20;
   overflow: hidden;
@@ -945,6 +952,39 @@ h1 {
   .tab-button:hover {
     cursor: pointer;
     border: 1px solid #ffffff; }
+
+.tab-panels {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow-y: auto; }
+  .tab-panels .panel {
+    z-index: 100;
+    padding: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: block;
+    -webkit-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    -webkit-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    transition: all 400ms ease; }
+    .tab-panels .panel.active {
+      z-index: 200;
+      opacity: 1;
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      transform: translate(0, 0); }
+  .tab-panels::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */ }
 
 .margin-none {
   margin: 0 !important; }
