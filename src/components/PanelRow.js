@@ -5,9 +5,25 @@ class PanelRow extends Component {
    constructor(props){
       super(props);
 
+      this.state = { season: this.props.data };
 
-      this.createPanelRows = this.createPanelRows.bind(this);
+      this.watched = this.watched.bind(this);
       this.aired = this.aired.bind(this);
+      this.createPanelRows = this.createPanelRows.bind(this);
+   }
+
+   watched(key){
+      const season = this.state.season;
+      let valid = this.props.tabActive == season[0];
+
+      if(!valid){
+         return;
+      }
+      season[key].watched = !season[key].watched;
+
+      this.setState({
+         season: season
+      });
    }
 
    aired(date) {
@@ -29,7 +45,7 @@ class PanelRow extends Component {
    }
 
    createPanelRows(){
-      const season = this.props.data.slice(1);
+      const season = this.state.season.slice(1);
 
       const rows = season.map((episode, i) =>
          <div className={'panel-row' + (!episode.watched ? ' disabled' : '') } key={ i } >
@@ -41,8 +57,8 @@ class PanelRow extends Component {
                Episode { episode.number }
             </div>
 
-            <div className="col-20">
-               <span className={ 'dripicons-preview' + (episode.watched ? ' active' : '') }></span>
+            <div className="col-20" onClick={ () => { this.watched(i + 1 ) } } >
+               <span className={ 'dripicons-preview' + (episode.watched ? ' active' : '') } ></span>
             </div>
          </div>
       );

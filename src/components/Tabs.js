@@ -40,8 +40,6 @@ class Tabs extends Component {
    }
 
    render() {
-      let tabNumber = this.state.tabActive;
-
       return (
          <div>
             <div className="tabs" >{ this.createTabs() }</div>

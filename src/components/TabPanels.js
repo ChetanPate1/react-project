@@ -19,7 +19,7 @@ class TabPanels extends Component {
 
       const panels = tabPanels.map((tabPanel, i) =>
          <div className={'tab-panel' + (this.isTabSelected(tabPanels[i]) ? ' active' : '') } key={ i } >
-            <PanelRow data={ seasons['season_' + tabPanels[i]] } />
+            <PanelRow tabActive={ this.props.tabActive } data={ seasons['season_' + tabPanels[i]] } />
          </div>
       );
 
