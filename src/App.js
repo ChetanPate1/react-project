@@ -54,7 +54,7 @@ var watchlist = {
             "airDate":1503864000000,
             "name":"Episode 7",
             "number":7,
-            "watched":false
+            "watched":true
          }
       ],
       "season_7":[

@@ -46,6 +46,8 @@ class Tabs extends Component {
             <TabPanels
                tabActive={ this.state.tabActive }
                panelContent={ this.props.seasons }
+               currentEpisode={ this.props.currentEpisode }
+               currentSeason={ this.props.currentSeason }
             />
          </div>
       );

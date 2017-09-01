@@ -7,7 +7,7 @@ class SlideOutPanel extends Component {
 
       return (
          <div className={ 'slide-out-panel' + conditionalClass } >
-            <Tabs seasons={ this.props.seasons } currentSeason={ this.props.currentSeason }  />
+            <Tabs seasons={ this.props.seasons } currentSeason={ this.props.currentSeason } currentEpisode={ this.props.currentEpisode } />
          </div>
       );
    }
