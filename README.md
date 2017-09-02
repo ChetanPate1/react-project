@@ -10,6 +10,9 @@ I will be converting watchlist card from my toWatch project
 ### Component Breakdown
 [screenshot](https://github.com/ChetanPate1/react-project/blob/master/component-breakdown.png)
 
+### Converted Component
+[Demo](https://chetanpate1.github.io/react-project/)
+
 ### License
 [MIT License](https://github.com/ChetanPate1/react-project/blob/master/LICENCE)
 © Chetan Patel
