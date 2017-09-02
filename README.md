@@ -1,5 +1,5 @@
 # react-project
-## Converting angular component to react
+### Converting angular component to react
 I will be converting watchlist card from my toWatch project
 
 ### Process
@@ -12,6 +12,7 @@ I will be converting watchlist card from my toWatch project
 
 ### Converted Component
 [Demo](https://chetanpate1.github.io/react-project/)
+
 
 ### License
 [MIT License](https://github.com/ChetanPate1/react-project/blob/master/LICENCE)
