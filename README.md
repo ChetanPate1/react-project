@@ -11,7 +11,7 @@ I will be converting watchlist card from my toWatch project
 [screenshot](https://github.com/ChetanPate1/react-project/blob/master/component-breakdown.png)
 
 ### Converted Component
-[In progress...component](https://chetanpate1.github.io/react-project/)
+[[In progress...] component](https://chetanpate1.github.io/react-project/)
 
 
 ### License
