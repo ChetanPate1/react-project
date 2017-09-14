@@ -1,11 +1,15 @@
 const watchlistApp = (state = watchlist, action) => {
   switch (action.type) {
     case 'TOGGLE_WATCHED':
-      console.log(state);
-      return state;
+      const newState = { ...state };
+
+      newState.unwatched[action.seasonKey][action.episode].watched =
+      !newState.unwatched[action.seasonKey][action.episode].watched
+
+      return newState;
 
     case 'SET_CURRENT_SEASON':
-      return state;
+      return {...state, on: action.on };
 
     default:
       return state;

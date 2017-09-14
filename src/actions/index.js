@@ -1,13 +1,12 @@
 export const toggleWatched = (seasonKey, episode) => {
   return {
     type: 'TOGGLE_WATCHED',
-    seasonKey
+    seasonKey, episode
   }
 }
 
 export const setCurrentSeason = (on) => {
   return {
-    type: 'SET_CURRENT_SEASON',
-    on
+    type: 'SET_CURRENT_SEASON', on
   }
 }

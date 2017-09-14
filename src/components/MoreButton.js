@@ -16,7 +16,7 @@ class MoreButton extends Component {
       this.behindCount = this.behindCount.bind(this);
    }
 
-   componentWillMount(){
+   componentDidMount(){
       let currentSeason = parseInt(this.props.currentSeason, 0);
       this.behindCount(this.props.seasons, currentSeason);
    }
@@ -55,6 +55,7 @@ class MoreButton extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     currentSeason: state.on.season,
     seasons: state.unwatched

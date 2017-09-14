@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleWatched } from '../actions';
+import { toggleWatched, setCurrentSeason } from '../actions';
 import { timeNow, objSize } from '../helperFunctions';
 
 class TabRows extends Component {
    constructor(props){
       super(props);
-
-      this.state = { season: this.props.seasons[this.props.seasonKey] };
+      this.state = {
+        season: this.props.seasons[this.props.seasonKey],
+        on: this.props.watchlist.on
+      };
 
       this.watched = this.watched.bind(this);
       this.aired = this.aired.bind(this);
@@ -16,24 +18,18 @@ class TabRows extends Component {
    }
 
    watched(key, airDate){
-      const season = this.state.season;
-      const currentEpisode = parseInt(this.props.currentEpisode, 0);
-      let isCurrentSeason = this.props.currentSeason === season[0].toString();
-      let valid = key === currentEpisode || key === (currentEpisode - 1);
+     const season = this.state.season;
+     const currentEpisode = parseInt(this.state.on.episode, 0);
+     let isCurrentSeason = this.state.on.season === season[0].toString();
+     let isOneMoreOrOneLess = key === currentEpisode || key === currentEpisode - 1;
+     let seasonKey =  `season_${ season[0] }`;
 
-      if(!isCurrentSeason){
-        return;
-        if(!this.aired(airDate).isAired || !valid){
-          return;
-        }
-      }
+     if(!isCurrentSeason || !this.aired(airDate).isAired || !isOneMoreOrOneLess){
+       return;
+     }
 
-      season[key].watched = !season[key].watched;
-      let seasonKey = season[0];
-      // this.setState({
-      //    season: season
-      // }); 
-      this.countWatched(season, this.props.currentSeason);
+      this.props.toggleWatched(seasonKey, key);
+      this.countWatched(season, this.state.on.season);
    }
 
    countWatched(season, currentSeason) {
@@ -55,8 +51,8 @@ class TabRows extends Component {
      }else {
        on.episode = count;
      }
-
-    //  this.$store.commit('setCurrentSeason', { on });
+     console.log('counted', on);
+     this.props.setCurrentSeason(on);
    }
 
    aired(date) {
@@ -113,4 +109,15 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(TabRows);
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleWatched: (seasonKey, episode) => {
+      dispatch(toggleWatched(seasonKey, episode));
+    },
+    setCurrentSeason: (on) => {
+      dispatch(setCurrentSeason(on));
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabRows);
