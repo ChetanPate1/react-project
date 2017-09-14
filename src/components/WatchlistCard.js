@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import FrostGlass from './FrostGlass';
 import MorePanel from './MorePanel';
 
@@ -21,4 +23,10 @@ class WatchlistCard extends Component {
    }
 }
 
-export default WatchlistCard;
+const mapStateToProps = state => {
+  return {
+    watchlist: state
+  }
+};
+
+export default connect(mapStateToProps)(WatchlistCard);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { timeNow } from '../helperFunctions';
+import { connect } from 'react-redux';
+import { toggleWatched } from '../actions';
+import { timeNow, objSize } from '../helperFunctions';
 
 class PanelRow extends Component {
    constructor(props){
@@ -26,10 +28,34 @@ class PanelRow extends Component {
       }
 
       season[key].watched = !season[key].watched;
-
+      let seasonKey = season[0];
       this.setState({
          season: season
       });
+      this.countWatched(season, this.props.currentSeason);
+   }
+
+   countWatched(season, currentSeason) {
+     let count = 1, j = 1;
+     let totalEpisodes = objSize(season);
+     let nextSeason = parseInt(currentSeason, 0) + 1;
+     let on = { episode: 1, season: currentSeason };
+     for (j; j < totalEpisodes; j++) {
+       if(season[j].watched){
+         count++;
+       }
+       if (!season[j].watched) {
+         count + 1;
+       }
+     }
+     if(count === objSize(season)){
+       on.season = nextSeason.toString();
+       on.episode = 1;
+     }else {
+       on.episode = count;
+     }
+
+    //  this.$store.commit('setCurrentSeason', { on });
    }
 
    aired(date) {
