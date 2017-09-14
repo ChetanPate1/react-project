@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import TabRows from './TabRows';
 
 class TabPanels extends Component {
@@ -44,4 +46,11 @@ class TabPanels extends Component {
    }
 }
 
-export default TabPanels;
+const mapStateToProps = state => {
+  return {
+    watchlist: state,
+    panelContent: state.unwatched
+  }
+};
+
+export default connect(mapStateToProps)(TabPanels);
