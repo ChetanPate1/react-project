@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PanelRow from './PanelRow';
+import TabRows from './TabRows';
 
 class TabPanels extends Component {
    constructor(props){
@@ -19,7 +19,7 @@ class TabPanels extends Component {
 
       const panels = tabPanels.map((tabPanel, i) =>
          <div className={'tab-panel' + (this.isTabSelected(tabPanels[i]) ? ' active' : '') } key={ i } >
-            <PanelRow
+            <TabRows
               tabActive={ this.props.tabActive }
               currentEpisode={ this.props.currentEpisode }
               currentSeason={ this.props.currentSeason }

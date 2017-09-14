@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { toggleWatched } from '../actions';
 import { timeNow, objSize } from '../helperFunctions';
 
-class PanelRow extends Component {
+class TabRows extends Component {
    constructor(props){
       super(props);
 
-      this.state = { season: this.props.data };
-
       this.watched = this.watched.bind(this);
       this.aired = this.aired.bind(this);
-      this.createPanelRows = this.createPanelRows.bind(this);
+      this.createTabRows = this.createTabRows.bind(this);
    }
 
    watched(key, airDate){
-      const season = this.state.season;
+      const season = this.props.watchlist.unwatched;
       const currentEpisode = parseInt(this.props.currentEpisode, 0);
       let isCurrentSeason = this.props.currentSeason === season[0].toString();
       var valid = key === currentEpisode || key === (currentEpisode - 1);
@@ -29,9 +28,9 @@ class PanelRow extends Component {
 
       season[key].watched = !season[key].watched;
       let seasonKey = season[0];
-      this.setState({
-         season: season
-      });
+      // this.setState({
+      //    season: season
+      // });
       this.countWatched(season, this.props.currentSeason);
    }
 
@@ -76,11 +75,11 @@ class PanelRow extends Component {
       return aired;
    }
 
-   createPanelRows(){
+   createTabRows(){
       const season = this.state.season.slice(1);
 
       const rows = season.map((episode, i) =>
-         <div className={'panel-row' + (!episode.watched ? ' disabled' : '') } key={ i } >
+         <div className={'tab-row' + (!episode.watched ? ' disabled' : '') } key={ i } >
             <div className="col-35">
                <span className="aired-by"><i className="dripicons-feed"></i> { this.aired(episode.airDate).by }</span>
             </div>
@@ -100,9 +99,15 @@ class PanelRow extends Component {
 
    render() {
       return (
-         <div>{ this.createPanelRows() }</div>
+         <div>{ this.createTabRows() }</div>
       );
    }
 }
 
-export default PanelRow;
+const mapStateToProps = state => {
+  return {
+    watchlist: state
+  }
+};
+
+export default connect(mapStateToProps)(TabRows);
