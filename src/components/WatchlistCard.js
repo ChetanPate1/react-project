@@ -16,7 +16,7 @@ class WatchlistCard extends Component {
             <h5>On Season { watchlist.on.season } Episode { watchlist.on.episode }</h5>
             <h6>Next <small>Aired Episode</small></h6>
 
-            <MorePanel seasons={ watchlist.unwatched } currentSeason={ watchlist.on.season } currentEpisode={ watchlist.on.episode } />
+            <MorePanel />
             <FrostGlass imgSrc={ watchlist.imgsrc } />
          </div>
       );

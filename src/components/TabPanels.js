@@ -13,7 +13,8 @@ class TabPanels extends Component {
 
    createTabsPanels(){
       let tabPanels = [];
-      const seasons = this.props.panelContent;
+      const watchlist = this.props.watchlist;
+      const seasons = watchlist.unwatched;
 
       Object.keys(seasons).map((prop, index) =>
          tabPanels.push(seasons[prop][0])
@@ -23,9 +24,7 @@ class TabPanels extends Component {
          <div className={'tab-panel' + (this.isTabSelected(tabPanels[i]) ? ' active' : '') } key={ i } >
             <TabRows
               tabActive={ this.props.tabActive }
-              currentEpisode={ this.props.currentEpisode }
-              currentSeason={ this.props.currentSeason }
-              data={ seasons['season_' + tabPanels[i]] }
+              seasonKey={ 'season_' + tabPanels[i] }
             />
          </div>
       );
@@ -48,8 +47,7 @@ class TabPanels extends Component {
 
 const mapStateToProps = state => {
   return {
-    watchlist: state,
-    panelContent: state.unwatched
+    watchlist: state
   }
 };
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { objSize } from '../helperFunctions';
 
 class MoreButton extends Component {
@@ -45,11 +47,18 @@ class MoreButton extends Component {
 
       return (
          <button className={ 'more-button' + buttonStateClass + upToDateStateClass }
-            type="button" name="more" onClick={ this.toggle } >
-            <span className="dripicons-plus"></span>
+            type="button" name="more" onClick={ this.toggle } ><span className="dripicons-plus"></span>
             <span className="behind">{ behindCount }</span>
          </button>
       );
    }
 }
-export default MoreButton;
+
+const mapStateToProps = state => {
+  return {
+    currentSeason: state.on.season,
+    seasons: state.unwatched
+  }
+};
+
+export default connect(mapStateToProps)(MoreButton);
