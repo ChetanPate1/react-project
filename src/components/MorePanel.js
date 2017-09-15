@@ -19,7 +19,7 @@ class MorePanel extends Component {
    render() {
       return (
          <div>
-            <MoreButton on={ this.state.open } handleClick={ this.toggle } />
+            <MoreButton open={ this.state.open } handleClick={ this.toggle } />
             <SlideOutPanel open={ this.state.open } />
          </div>
       );

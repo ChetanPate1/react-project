@@ -8,8 +8,7 @@ class TabRows extends Component {
    constructor(props){
       super(props);
       this.state = {
-        season: this.props.seasons[this.props.seasonKey],
-        on: this.props.watchlist.on
+        season: this.props.seasons[this.props.seasonKey]
       };
 
       this.watched = this.watched.bind(this);
@@ -19,8 +18,8 @@ class TabRows extends Component {
 
    watched(key, airDate){
      const season = this.state.season;
-     const currentEpisode = parseInt(this.state.on.episode, 0);
-     let isCurrentSeason = this.state.on.season === season[0].toString();
+     const currentEpisode = parseInt(this.props.watchlist.on.episode, 0);
+     let isCurrentSeason = this.props.watchlist.on.season === season[0].toString();
      let isOneMoreOrOneLess = key === currentEpisode || key === currentEpisode - 1;
      let seasonKey =  `season_${ season[0] }`;
 
@@ -29,7 +28,7 @@ class TabRows extends Component {
      }
 
       this.props.toggleWatched(seasonKey, key);
-      this.countWatched(season, this.state.on.season);
+      this.countWatched(season, this.props.watchlist.on.season);
    }
 
    countWatched(season, currentSeason) {

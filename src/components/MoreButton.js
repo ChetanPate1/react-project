@@ -9,7 +9,8 @@ class MoreButton extends Component {
 
       this.state = {
          now: new Date().getTime(),
-         behindCount: 0
+         behindCount: 0,
+         episode: this.props.on.episode
       };
 
       this.toggle = this.props.handleClick;
@@ -17,8 +18,15 @@ class MoreButton extends Component {
    }
 
    componentDidMount(){
-      let currentSeason = parseInt(this.props.currentSeason, 0);
+      let currentSeason = parseInt(this.props.on.season, 0);
       this.behindCount(this.props.seasons, currentSeason);
+   }
+
+   componentWillReceiveProps(nextProps) {
+     if (nextProps.on.episode !== this.state.episode) {
+       let currentSeason = parseInt(this.props.on.season, 0);
+       this.behindCount(this.props.seasons, currentSeason);
+     }
    }
 
    behindCount(seasons, currentSeason){
@@ -42,7 +50,7 @@ class MoreButton extends Component {
 
    render() {
       let behindCount = this.state.behindCount;
-      let buttonStateClass = this.props.on ? ' open' : '';
+      let buttonStateClass = this.props.open ? ' open' : '';
       let upToDateStateClass = behindCount === 0 ? ' up-to-date' : '';
 
       return (
@@ -55,9 +63,8 @@ class MoreButton extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    currentSeason: state.on.season,
+    on: state.on,
     seasons: state.unwatched
   }
 };

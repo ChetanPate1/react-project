@@ -16,7 +16,7 @@ const watchlistApp = (state = watchlist, action) => {
   }
 }
 
-let watchlist = {
+const watchlist = {
   "on":{
     "episode":1,
     "season":"1"
