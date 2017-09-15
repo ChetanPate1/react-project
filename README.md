@@ -1,5 +1,5 @@
 # react-project
-##### react.js
+##### react.js + react-redux.js + redux.js
 
 ### Converting angular component to react
 I will be converting watchlist card from my toWatch project
@@ -13,7 +13,7 @@ I will be converting watchlist card from my toWatch project
 [screenshot](https://github.com/ChetanPate1/react-project/blob/master/component-breakdown.png)
 
 ### Converted Component
-[[In progress...]](https://chetanpate1.github.io/react-project/)
+[[demo]](https://chetanpate1.github.io/react-project/)
 
 
 ### License
