@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { objSize } from '../helperFunctions';
 
 class MoreButton extends Component {
@@ -7,16 +9,24 @@ class MoreButton extends Component {
 
       this.state = {
          now: new Date().getTime(),
-         behindCount: 0
+         behindCount: 0,
+         episode: this.props.on.episode
       };
 
       this.toggle = this.props.handleClick;
       this.behindCount = this.behindCount.bind(this);
    }
 
-   componentWillMount(){
-      let currentSeason = parseInt(this.props.currentSeason, 0);
+   componentDidMount(){
+      let currentSeason = parseInt(this.props.on.season, 0);
       this.behindCount(this.props.seasons, currentSeason);
+   }
+
+   componentWillReceiveProps(nextProps) {
+     if (nextProps.on.episode !== this.state.episode) {
+       let currentSeason = parseInt(this.props.on.season, 0);
+       this.behindCount(this.props.seasons, currentSeason);
+     }
    }
 
    behindCount(seasons, currentSeason){
@@ -40,16 +50,23 @@ class MoreButton extends Component {
 
    render() {
       let behindCount = this.state.behindCount;
-      let buttonStateClass = this.props.on ? ' open' : '';
+      let buttonStateClass = this.props.open ? ' open' : '';
       let upToDateStateClass = behindCount === 0 ? ' up-to-date' : '';
 
       return (
          <button className={ 'more-button' + buttonStateClass + upToDateStateClass }
-            type="button" name="more" onClick={ this.toggle } >
-            <span className="dripicons-plus"></span>
+            type="button" name="more" onClick={ this.toggle } ><span className="dripicons-plus"></span>
             <span className="behind">{ behindCount }</span>
          </button>
       );
    }
 }
-export default MoreButton;
+
+const mapStateToProps = state => {
+  return {
+    on: state.on,
+    seasons: state.unwatched
+  }
+};
+
+export default connect(mapStateToProps)(MoreButton);

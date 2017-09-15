@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import PanelRow from './PanelRow';
+import { connect } from 'react-redux';
+
+import TabRows from './TabRows';
 
 class TabPanels extends Component {
    constructor(props){
@@ -11,7 +13,8 @@ class TabPanels extends Component {
 
    createTabsPanels(){
       let tabPanels = [];
-      const seasons = this.props.panelContent;
+      const watchlist = this.props.watchlist;
+      const seasons = watchlist.unwatched;
 
       Object.keys(seasons).map((prop, index) =>
          tabPanels.push(seasons[prop][0])
@@ -19,11 +22,9 @@ class TabPanels extends Component {
 
       const panels = tabPanels.map((tabPanel, i) =>
          <div className={'tab-panel' + (this.isTabSelected(tabPanels[i]) ? ' active' : '') } key={ i } >
-            <PanelRow
+            <TabRows
               tabActive={ this.props.tabActive }
-              currentEpisode={ this.props.currentEpisode }
-              currentSeason={ this.props.currentSeason }
-              data={ seasons['season_' + tabPanels[i]] }
+              seasonKey={ 'season_' + tabPanels[i] }
             />
          </div>
       );
@@ -44,4 +45,10 @@ class TabPanels extends Component {
    }
 }
 
-export default TabPanels;
+const mapStateToProps = state => {
+  return {
+    watchlist: state
+  }
+};
+
+export default connect(mapStateToProps)(TabPanels);
